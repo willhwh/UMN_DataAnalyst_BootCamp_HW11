@@ -22,11 +22,13 @@ form.on("submit",filterTable); //use enter key to trigger function
 function filterTable(){
     //prevent page from refreshing
     d3.event.preventDefault();
-    console.log('filter function triggered.')
-    var inputElement = d3.select('#datetime')
-    var inputValue = inputElement.property('value')
-    console.log(`Search Term: ${inputValue}`)
+    console.log('filter function triggered.');
 
+    var inputElement = d3.select('#datetime');
+    var inputValue = inputElement.property('value');
+    console.log(`Search Term: ${inputValue}`);
 
+    var filteredData = data.filter(person => person.datetime === inputValue);// must use 'person' syntax
+    console.log(filteredData);
 
 };
