@@ -1,3 +1,5 @@
+console.log('data.js is launched.')
+
 var data = [{
     datetime: "1/1/2010",
     city: "benton",
