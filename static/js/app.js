@@ -14,8 +14,8 @@ var filterButton = d3.select('#filter-btn');
 var form = d3.select('#form')
 
 // Create event handlers 
-filterButton.on("click", filterTable);
-form.on("submit",filterTable);
+filterButton.on("click", filterTable); //use filter button to grigger function
+form.on("submit",filterTable); //use enter key to trigger function
 
 
 //function
@@ -23,4 +23,10 @@ function filterTable(){
     //prevent page from refreshing
     d3.event.preventDefault();
     console.log('filter function triggered.')
+    var inputElement = d3.select('#datetime')
+    var inputValue = inputElement.property('value')
+    console.log(`Search Term: ${inputValue}`)
+
+
+
 };
