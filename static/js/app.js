@@ -28,7 +28,14 @@ function filterTable(){
     var inputValue = inputElement.property('value');
     console.log(`Search Term: ${inputValue}`);
 
-    var filteredData = data.filter(person => person.datetime === inputValue);// must use 'person' syntax
+    var filteredData = data.filter(cases => cases.datetime === inputValue);
     console.log(filteredData);
 
+    filteredData.forEach((cases) => {
+    var row = resultPresent.append("tr");
+    Object.entries(cases).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+        });
+    });
 };
