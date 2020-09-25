@@ -41,29 +41,39 @@ function focus(){
     inputBox.html('')
 
     if (checkDate===true){
+        inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Date');
-        inputBox.append('input').attr('id','datetime').attr('placeholder','1/11/2011');
-      
+        inputBox.append('br')
+        inputBox.append('input').attr('class','input-box').attr('id','datetime').attr('display','inline-block').attr('width','100px').attr('placeholder','1/11/2011');
+        
     }
 
     if (checkCity===true){
+        inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a City');
-        inputBox.append('input').attr('id','city').attr('placeholder','la mesa');
+        inputBox.append('br')
+        inputBox.append('input').attr('class','input-box').attr('id','city').attr('placeholder','la mesa');
 
     }
     if (checkState===true){
+        inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a State');
-        inputBox.append('input').attr('id','state').attr('placeholder','fl');
+        inputBox.append('br')
+        inputBox.append('input').attr('class','input-box').attr('id','state').attr('placeholder','fl');
 
     }
     if (checkCountry===true){
+        inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Country');
-        inputBox.append('input').attr('id','country').attr('placeholder','us');
+        inputBox.append('br')
+        inputBox.append('input').attr('class','input-box').attr('id','country').attr('placeholder','us');
 
     }
     if (checkShape===true){
+        inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Shape');
-        inputBox.append('input').attr('id','shape').attr('placeholder','triangle');
+        inputBox.append('br')
+        inputBox.append('input').attr('class','input-box').attr('id','shape').attr('placeholder','triangle');
 
 
     };
