@@ -12,101 +12,114 @@ var resultPresent = d3.select("tbody");
 
 var filterButton = d3.select('#filter-btn');
 var form = d3.select('#form');
-var searchType=d3.select('.selectpicker');
-var labelType=d3.select('#select-type');
-var inputPlace=d3.select('input');
-var enterLabel=d3.select('#enter-type')
+var checkBox = d3.select('#check-boxes');
+
+
 // Create event handlers 
+checkBox.on('change',focus);//show the input according to the chick boxes
 filterButton.on("click", filterTable); //use filter button to grigger function
 form.on("submit",filterTable); //use enter key to trigger function
-searchType.on('change',focus);
 
-var focusType = searchType.property('value');
+
 //function search type select
+
+
 function focus(){
-    focusType = searchType.property('value');
     
+    var checkDate=d3.select('#check-date').property('checked')
+    console.log(checkDate)
+    var checkCity=d3.select('#check-city').property('checked')
+    console.log(checkCity)
+    var checkState=d3.select('#check-state').property('checked')
+    console.log(checkState)
+    var checkCountry=d3.select('#check-country').property('checked')
+    console.log(checkCountry)
+    var checkShape=d3.select('#check-shape').property('checked')
+    console.log(checkShape)
+    var inputBox=d3.select('#input-section')
 
-    if (focusType==='Date'){
-        labelType.attr('for','date');
-        enterLabel.text('Enter a Date');
-        inputPlace.attr('id','datetime');
-        inputPlace.attr('placeholder','1/11/2011');
-    }
-    else if (focusType==='City'){
-        labelType.attr('for','city')
-        enterLabel.text('Enter a City')
-        inputPlace.attr('id','city');
-        inputPlace.attr('placeholder','la mesa');
-    }
-    else if (focusType==='State'){
-        labelType.attr('for','state')
-        enterLabel.text('Enter a State')
-        inputPlace.attr('id','state');
-        inputPlace.attr('placeholder','fl');
-    }
-    else if (focusType==='Country'){
-        labelType.attr('for','country')
-        enterLabel.text('Enter a Country')
-        inputPlace.attr('id','country');
-        inputPlace.attr('placeholder','us');
-    }
-    else if (focusType==='Shape'){
-        labelType.attr('for','shape')
-        enterLabel.text('Enter a Shape')
-        inputPlace.attr('id','shape');
-        inputPlace.attr('placeholder','triangle');
+    inputBox.html('')
+
+    if (checkDate===true){
+        inputBox.append('label').attr('for','date').text('Enter a Date');
+        inputBox.append('input').attr('id','datetime').attr('placeholder','1/11/2011');
+      
     }
 
-}
+    if (checkCity===true){
+        inputBox.append('label').attr('for','date').text('Enter a City');
+        inputBox.append('input').attr('id','city').attr('placeholder','la mesa');
+
+    }
+    if (checkState===true){
+        inputBox.append('label').attr('for','date').text('Enter a State');
+        inputBox.append('input').attr('id','state').attr('placeholder','fl');
+
+    }
+    if (checkCountry===true){
+        inputBox.append('label').attr('for','date').text('Enter a Country');
+        inputBox.append('input').attr('id','country').attr('placeholder','us');
+
+    }
+    if (checkShape===true){
+        inputBox.append('label').attr('for','date').text('Enter a Shape');
+        inputBox.append('input').attr('id','shape').attr('placeholder','triangle');
+
+
+    };
+
+};
 
 //function
 function filterTable(){
     //prevent page from refreshing
     d3.event.preventDefault();
     resultPresent.html("");
-    console.log(`Using ${focusType} as filter`);
     console.log('filter function triggered.');
-    console.log(`Search Term: ${inputValue}`);
 
+    var checkDate=d3.select('#check-date').property('checked')
+    console.log(checkDate)
+    var checkCity=d3.select('#check-city').property('checked')
+    console.log(checkCity)
+    var checkState=d3.select('#check-state').property('checked')
+    console.log(checkState)
+    var checkCountry=d3.select('#check-country').property('checked')
+    console.log(checkCountry)
+    var checkShape=d3.select('#check-shape').property('checked')
+    console.log(checkShape)
+    var inputBox=d3.select('#input-section')
 
-
-    
-
-    if (focusType==='Date'){
+    if (checkDate===true){
         var inputElement = d3.select('#datetime');
         var inputValue = inputElement.property('value');
         var filteredData = data.filter(cases => cases.datetime === inputValue);
         console.log(filteredData);
     }
-    else if (focusType==='City'){
+
+    if (checkCity===true){
         var inputElement = d3.select('#city');
         var inputValue = inputElement.property('value');
-        var filteredData = data.filter(cases => cases.city === inputValue);
+        var filteredData = filteredData.filter(cases => cases.city === inputValue);
         console.log(filteredData);
     }
-    else if (focusType==='State'){
+    if (checkState===true){
         var inputElement = d3.select('#state');
         var inputValue = inputElement.property('value');
-        var filteredData = data.filter(cases => cases.state === inputValue);
+        var filteredData = filteredData.filter(cases => cases.city === inputValue);
         console.log(filteredData);
     }
-    else if (focusType==='Country'){
+    if (checkCountry===true){
         var inputElement = d3.select('#country');
         var inputValue = inputElement.property('value');
-        var filteredData = data.filter(cases => cases.country === inputValue);
+        var filteredData = filteredData.filter(cases => cases.country === inputValue);
         console.log(filteredData);
     }
-    else if (focusType==='Shape'){
+    if (checkShape===true){
         var inputElement = d3.select('#shape');
         var inputValue = inputElement.property('value');
-        var filteredData = data.filter(cases => cases.shape === inputValue);
+        var filteredData = filteredData.filter(cases => cases.shape === inputValue);
         console.log(filteredData);
-    }
-
-
-
-
+    };
 
 
     filteredData.forEach((cases) => {
