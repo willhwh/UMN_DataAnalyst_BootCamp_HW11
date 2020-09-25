@@ -44,7 +44,7 @@ function focus(){
         inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Date');
         inputBox.append('br')
-        inputBox.append('input').attr('class','input-box').attr('id','datetime').attr('display','inline-block').attr('width','100px').attr('placeholder','1/11/2011');
+        inputBox.append('input').attr('class','input-box').attr('id','datetime').attr('size','13px').attr('placeholder','1/11/2011');
         
     }
 
@@ -52,28 +52,29 @@ function focus(){
         inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a City');
         inputBox.append('br')
-        inputBox.append('input').attr('class','input-box').attr('id','city').attr('placeholder','la mesa');
+        inputBox.append('input').attr('class','input-box').attr('id','city').attr('size','13px').attr('placeholder','la mesa');
 
     }
     if (checkState===true){
         inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a State');
         inputBox.append('br')
-        inputBox.append('input').attr('class','input-box').attr('id','state').attr('placeholder','fl');
+        inputBox.append('input').attr('class','input-box').attr('id','state').attr('size','13px').attr('placeholder','fl');
 
     }
     if (checkCountry===true){
         inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Country');
         inputBox.append('br')
-        inputBox.append('input').attr('class','input-box').attr('id','country').attr('placeholder','us');
+        inputBox.append('input').attr('class','input-box').attr('id','country').attr('size','13px').attr('placeholder','us');
 
     }
     if (checkShape===true){
         inputBox.append('br')
         inputBox.append('label').attr('for','date').text('Enter a Shape');
         inputBox.append('br')
-        inputBox.append('input').attr('class','input-box').attr('id','shape').attr('placeholder','triangle');
+        inputBox.append('input').attr('class','input-box').attr(('id','size'),('shape','13px')).attr('placeholder','triangle');
+        //.attr((attribute),(value))
 
 
     };
